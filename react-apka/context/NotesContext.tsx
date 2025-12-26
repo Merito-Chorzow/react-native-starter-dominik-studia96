@@ -5,6 +5,10 @@ export type Note = {
   title: string;
   description: string;
   date: string;
+  location?: {
+    latitude: number;
+    longitude: number;
+  };
 };
 
 type NotesContextType = {
