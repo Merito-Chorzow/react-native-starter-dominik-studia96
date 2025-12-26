@@ -1,10 +1,13 @@
 import { Stack } from "expo-router";
+import { NotesProvider } from "../context/NotesContext";
 
 export default function RootLayout() {
 	return (
-		<Stack>
-			<Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-			<Stack.Screen name='details' options={{ title: "Szczegóły" }} />
-		</Stack>
+		<NotesProvider>
+			<Stack>
+				<Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+				<Stack.Screen name='details' options={{ title: "Szczegóły" }} />
+			</Stack>
+		</NotesProvider>
 	);
 }

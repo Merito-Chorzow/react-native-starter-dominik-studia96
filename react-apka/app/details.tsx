@@ -1,14 +1,26 @@
 import { View, Text, Pressable } from "react-native";
-import { router } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
+import { useNotes } from "../context/NotesContext";
 
 export default function DetailsScreen() {
+	const { id } = useLocalSearchParams<{ id: string }>();
+	const { getNoteById } = useNotes();
+
+	const note = getNoteById(Number(id));
+
+	if (!note) {
+		return (
+			<View style={{ padding: 16 }}>
+				<Text>Nie znaleziono notatki</Text>
+			</View>
+		);
+	}
+
 	return (
 		<View style={{ padding: 16, gap: 12 }}>
-			<Text style={{ fontSize: 22, fontWeight: "600" }}>Szczegóły notatki</Text>
-
-			<Text>Tytuł: Przykładowa notatka</Text>
-			<Text>Data: 2025-12-26</Text>
-			<Text>Opis: To jest przykładowy opis.</Text>
+			<Text style={{ fontSize: 22, fontWeight: "600" }}>{note.title}</Text>
+			<Text>{note.date}</Text>
+			<Text>{note.description}</Text>
 
 			<Pressable
 				onPress={() => router.back()}
@@ -18,8 +30,7 @@ export default function DetailsScreen() {
 					alignItems: "center",
 					borderWidth: 1,
 					borderRadius: 10,
-				}}
-				accessibilityLabel='Wróć do listy notatek'>
+				}}>
 				<Text>Wróć</Text>
 			</Pressable>
 		</View>
