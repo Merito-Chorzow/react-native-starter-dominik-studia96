@@ -48,3 +48,22 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+# Aplikacja mobilna – Notatki (React Native + Expo)
+
+## Opis projektu
+Aplikacja mobilna umożliwiająca tworzenie i przeglądanie notatek.  
+Notatka może zawierać tytuł, opis, datę oraz opcjonalnie lokalizację GPS.  
+Projekt został wykonany w technologii **React Native** z użyciem **Expo**.
+
+---
+
+## Wymagania do testowania
+- Node.js (najlepiej wersja LTS)
+- npm (instalowany razem z node)
+- Telefon z Androidem lub iOS
+- Aplikacja **Expo Go** zainstalowana na telefonie
+- Komputer i telefon w tej samej sieci Wi-Fi
+
+Przy instalacji aplikacji uzywamy npm i, po czym kolejno npx expo start -c, projekt uruchamiamy w głownym katalogu.
+
